@@ -5,7 +5,7 @@ import CustomLink from "../utils/CustomLink";
 import debounce from "lodash.debounce";
 
 export default function Search(props) {
-  const { VODS_API_BASE } = props;
+  const { ARCHIVE_API_BASE } = props;
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState(undefined);
   const [searchResults, setSearchResults] = useState([]);
@@ -22,7 +22,7 @@ export default function Search(props) {
     if (!search) return;
     setLoading(true);
     const fetchSearch = async () => {
-      await fetch(`${VODS_API_BASE}/search`, {
+      await fetch(`${ARCHIVE_API_BASE}/search`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,7 +42,7 @@ export default function Search(props) {
       setLoading(false);
     };
     fetchSearch();
-  }, [search, VODS_API_BASE]);
+  }, [search, ARCHIVE_API_BASE]);
 
   return (
     <Autocomplete

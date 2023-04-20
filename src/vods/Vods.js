@@ -9,7 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Vods(props) {
   const navigate = useNavigate();
-  const { VODS_API_BASE, channel } = props;
+  const { ARCHIVE_API_BASE, channel } = props;
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const isMobile = useMediaQuery("(max-width: 600px)");
@@ -22,7 +22,7 @@ export default function Vods(props) {
     setVods(null);
     document.title = `VODS - ${channel}`;
     const fetchVods = async () => {
-      await fetch(`${VODS_API_BASE}/vods?$limit=${limit}&$skip=${(page - 1) * limit}&$sort[createdAt]=-1`, {
+      await fetch(`${ARCHIVE_API_BASE}/vods?$limit=${limit}&$skip=${(page - 1) * limit}&$sort[createdAt]=-1`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function Vods(props) {
     };
     fetchVods();
     return;
-  }, [VODS_API_BASE, channel, limit, page]);
+  }, [ARCHIVE_API_BASE, channel, limit, page]);
 
   const handleSubmit = (e) => {
     const value = e.target.value;
@@ -62,7 +62,7 @@ export default function Vods(props) {
         </Box>
         <Box sx={{ display: "flex", mt: 1, justifyContent: "center", alignItems: "center" }}>
           <Box sx={{ width: isMobile ? "100%" : "50%" }}>
-            <Search VODS_API_BASE={VODS_API_BASE} />
+            <Search ARCHIVE_API_BASE={ARCHIVE_API_BASE} />
           </Box>
         </Box>
         {vods ? (

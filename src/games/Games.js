@@ -13,7 +13,7 @@ import CustomToolTip from "../utils/CustomToolTip";
 const delay = 0;
 
 export default function Games(props) {
-  const { VODS_API_BASE, channel, twitchId } = props;
+  const { ARCHIVE_API_BASE, channel, twitchId } = props;
   const location = useLocation();
   const isPortrait = useMediaQuery("(orientation: portrait)");
   const { vodId } = useParams();
@@ -28,7 +28,7 @@ export default function Games(props) {
 
   useEffect(() => {
     const fetchVod = async () => {
-      await fetch(`${VODS_API_BASE}/vods/${vodId}`, {
+      await fetch(`${ARCHIVE_API_BASE}/vods/${vodId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function Games(props) {
     };
     fetchVod();
     return;
-  }, [vodId, VODS_API_BASE, channel]);
+  }, [vodId, ARCHIVE_API_BASE, channel]);
 
   useEffect(() => {
     if (!vod) return;
@@ -133,7 +133,7 @@ export default function Games(props) {
           setUserChatDelay={setUserChatDelay}
           channel={channel}
           twitchId={twitchId}
-          VODS_API_BASE={VODS_API_BASE}
+          ARCHIVE_API_BASE={ARCHIVE_API_BASE}
         />
       </Box>
     </Box>

@@ -15,7 +15,7 @@ export default function Vod(props) {
   const location = useLocation();
   const isPortrait = useMediaQuery("(orientation: portrait)");
   const { vodId } = useParams();
-  const { type, VODS_API_BASE, channel, twitchId } = props;
+  const { type, ARCHIVE_API_BASE, channel, twitchId } = props;
   const [vod, setVod] = useState(undefined);
   const [drive, setDrive] = useState(undefined);
   const [chapter, setChapter] = useState(undefined);
@@ -30,7 +30,7 @@ export default function Vod(props) {
 
   useEffect(() => {
     const fetchVod = async () => {
-      await fetch(`${VODS_API_BASE}/vods/${vodId}`, {
+      await fetch(`${ARCHIVE_API_BASE}/vods/${vodId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default function Vod(props) {
     };
     fetchVod();
     return;
-  }, [vodId, VODS_API_BASE, channel]);
+  }, [vodId, ARCHIVE_API_BASE, channel]);
 
   useEffect(() => {
     if (!vod) return;
@@ -122,7 +122,7 @@ export default function Vod(props) {
           delay={delay}
           userChatDelay={userChatDelay}
           setUserChatDelay={setUserChatDelay}
-          VODS_API_BASE={VODS_API_BASE}
+          ARCHIVE_API_BASE={ARCHIVE_API_BASE}
         />
       </Box>
     </Box>
