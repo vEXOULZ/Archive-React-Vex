@@ -14,7 +14,7 @@ export default function Vods(props) {
   const query = new URLSearchParams(location.search);
   const isMobile = useMediaQuery("(max-width: 600px)");
   const [vods, setVods] = React.useState([]);
-  const [totalVods, setTotalVods] = React.useState(null);
+  const [totalVods, setTotalVods] = React.useState(undefined);
   const page = parseInt(query.get("page") || "1", 10);
   const limit = isMobile ? 10 : 20;
 
@@ -50,11 +50,13 @@ export default function Vods(props) {
 
   const totalPages = Math.ceil(totalVods / limit);
 
+  console.log(typeof totalVods);
+
   return (
     <SimpleBar style={{ minHeight: 0, height: "100%" }}>
       <Box sx={{ padding: 2 }}>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          {totalVods && (
+          {totalVods !== undefined && (
             <Typography variant="h4" color="primary" sx={{ textTransform: "uppercase", fontWeight: "550" }}>
               {`${totalVods} Vods Archived`}
             </Typography>
