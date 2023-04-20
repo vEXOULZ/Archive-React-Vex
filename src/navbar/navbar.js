@@ -1,10 +1,9 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, useMediaQuery, Box } from "@mui/material";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo.webp";
 import CustomLink from "../utils/CustomLink";
 import Drawer from "./drawer";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import StoreIcon from "@mui/icons-material/Store";
 import ReportIcon from "@mui/icons-material/Report";
 
 const socials = [];
@@ -55,16 +54,6 @@ export default function Navbar(props) {
                     <ReportIcon color="primary" sx={{ mr: 0.5 }} />
                     <Typography color="primary" variant="h6">
                       Report an Issue
-                    </Typography>
-                  </Box>
-                </CustomLink>
-              </Box>
-              <Box sx={{ mr: 2 }}>
-                <CustomLink href="/merch">
-                  <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <StoreIcon color="primary" sx={{ mr: 0.5 }} />
-                    <Typography color="primary" variant="h6">
-                      Merch
                     </Typography>
                   </Box>
                 </CustomLink>

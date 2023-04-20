@@ -1,4 +1,4 @@
-import LoadingLogo from "../assets/logo.png";
+import LoadingLogo from "../assets/loading.webp";
 import { Box, CircularProgress } from "@mui/material";
 
 export default function Loading() {
