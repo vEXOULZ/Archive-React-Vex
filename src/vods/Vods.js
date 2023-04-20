@@ -50,8 +50,6 @@ export default function Vods(props) {
 
   const totalPages = Math.ceil(totalVods / limit);
 
-  console.log(typeof totalVods);
-
   return (
     <SimpleBar style={{ minHeight: 0, height: "100%" }}>
       <Box sx={{ padding: 2 }}>
