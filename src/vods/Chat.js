@@ -543,6 +543,7 @@ export default function Chat(props) {
   useEffect(() => {
     if (!playing.playing || stoppedAtIndex.current === undefined) return;
     const fetchComments = (offset = 0) => {
+      console.log(`fetchComments called`)
       fetch(`${ARCHIVE_API_BASE}/v1/vods/${vodId}/comments?content_offset_seconds=${offset}`, {
         method: "GET",
         headers: {
@@ -557,6 +558,7 @@ export default function Chat(props) {
         .catch((e) => {
           console.error(e);
         });
+      console.log(`cursor current == ${cursor.current}`)
     };
 
     const time = getCurrentTime();
