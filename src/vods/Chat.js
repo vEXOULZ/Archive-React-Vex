@@ -196,20 +196,11 @@ export default function Chat(props) {
   }, [playerRef, youtube, delay, part, userChatDelay, games]);
 
   const buildComments = useCallback(() => {
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
-    console.log(`${!playerRef.current} | ${!comments.current} | ${comments.current.length} | ${!cursor.current} | ${stoppedAtIndex.current}`)
     if (!playerRef.current || !comments.current || comments.current.length === 0 || stoppedAtIndex.current === null) return;
-    console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBB")
     if (youtube || games ? playerRef.current.getPlayerState() !== 1 : playerRef.current.paused()) return;
 
     const time = getCurrentTime();
-    console.log(`time: ${time}`)
-    console.log(`comment current time: ${comments.current[0].content_offset_seconds}`)
-    console.log(`comments: ${comments}`)
-    console.log(`comments.current: ${comments.current}`)
-    console.log(`comments.current.length-1: ${comments.current.length - 1}`)
     let lastIndex = comments.current.length - 1;
-    console.log(`lastIndex: ${lastIndex}`)
     for (let i = stoppedAtIndex.current.valueOf(); i < comments.current.length; i++) {
       if (comments.current[i].content_offset_seconds > time) {
         lastIndex = i;
@@ -498,8 +489,6 @@ export default function Chat(props) {
 
     const messages = [];
 
-    console.log(`current ${stoppedAtIndex.current.valueOf()} | lastIndex ${lastIndex}`)
-
     for (let i = stoppedAtIndex.current.valueOf(); i < lastIndex; i++) {
       const comment = comments.current[i];
       if (!comment.message) continue;
@@ -532,8 +521,6 @@ export default function Chat(props) {
 
     newMessages.current = messages;
 
-    console.log(`${messages}`)
-
     setShownMessages((shownMessages) => {
       const concatMessages = shownMessages.concat(messages);
       if (concatMessages.length > 200) concatMessages.splice(0, messages.length);
@@ -542,7 +529,6 @@ export default function Chat(props) {
     });
     stoppedAtIndex.current = lastIndex;
     if (comments.current.length - 1 === lastIndex && cursor.current) fetchNextComments();
-    console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCC")
   }, [getCurrentTime, playerRef, vodId, ARCHIVE_API_BASE, youtube, games, showTimestamp]);
 
   const loop = useCallback(() => {
@@ -554,7 +540,6 @@ export default function Chat(props) {
   useEffect(() => {
     if (!playing.playing || stoppedAtIndex.current === undefined) return;
     const fetchComments = (offset = 0) => {
-      console.log(`fetchComments called`)
       fetch(`${ARCHIVE_API_BASE}/v1/vods/${vodId}/comments?content_offset_seconds=${offset}`, {
         method: "GET",
         headers: {
@@ -569,7 +554,6 @@ export default function Chat(props) {
         .catch((e) => {
           console.error(e);
         });
-      console.log(`cursor current == ${cursor.current}`)
     };
 
     const time = getCurrentTime();
