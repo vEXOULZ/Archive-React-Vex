@@ -203,6 +203,8 @@ export default function Chat(props) {
     if (youtube || games ? playerRef.current.getPlayerState() !== 1 : playerRef.current.paused()) return;
 
     const time = getCurrentTime();
+    console.log(`time: ${time}`)
+    console.log(`comment current time: ${comments.current[0].content_offset_seconds}`)
     console.log(`comments: ${comments}`)
     console.log(`comments.current: ${comments.current}`)
     console.log(`comments.current.length-1: ${comments.current.length - 1}`)
