@@ -196,7 +196,9 @@ export default function Chat(props) {
   }, [playerRef, youtube, delay, part, userChatDelay, games]);
 
   const buildComments = useCallback(() => {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
     if (!playerRef.current || !comments.current || comments.current.length === 0 || !cursor.current || stoppedAtIndex.current === null) return;
+    console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBB")
     if (youtube || games ? playerRef.current.getPlayerState() !== 1 : playerRef.current.paused()) return;
 
     const time = getCurrentTime();
@@ -528,6 +530,7 @@ export default function Chat(props) {
     });
     stoppedAtIndex.current = lastIndex;
     if (comments.current.length - 1 === lastIndex) fetchNextComments();
+    console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCC")
   }, [getCurrentTime, playerRef, vodId, ARCHIVE_API_BASE, youtube, games, showTimestamp]);
 
   const loop = useCallback(() => {
