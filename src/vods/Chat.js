@@ -198,7 +198,7 @@ export default function Chat(props) {
   const buildComments = useCallback(() => {
     console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
     console.log(`${!playerRef.current} | ${!comments.current} | ${comments.current.length} | ${!cursor.current} | ${stoppedAtIndex.current}`)
-    if (!playerRef.current || !comments.current || comments.current.length === 0 || stoppedAtIndex.current === null) return;
+    if (!playerRef.current || !comments.current || comments.current.length === 0 || !cursor.current || stoppedAtIndex.current === null) return;
     console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBB")
     if (youtube || games ? playerRef.current.getPlayerState() !== 1 : playerRef.current.paused()) return;
 
@@ -522,6 +522,8 @@ export default function Chat(props) {
     }
 
     newMessages.current = messages;
+
+    console.log(`${messages}`)
 
     setShownMessages((shownMessages) => {
       const concatMessages = shownMessages.concat(messages);
