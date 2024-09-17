@@ -491,6 +491,9 @@ export default function Chat(props) {
     };
 
     const messages = [];
+
+    console.log(`current ${stoppedAtIndex.current.valueOf()} | last ${lastIndex}`)
+
     for (let i = stoppedAtIndex.current.valueOf(); i < lastIndex; i++) {
       const comment = comments.current[i];
       if (!comment.message) continue;
