@@ -205,7 +205,9 @@ export default function Chat(props) {
     const time = getCurrentTime();
     console.log(`comments: ${comments}`)
     console.log(`comments.current: ${comments.current}`)
+    console.log(`comments.current.length-1: ${comments.current.length - 1}`)
     let lastIndex = comments.current.length - 1;
+    console.log(`lastIndex: ${lastIndex}`)
     for (let i = stoppedAtIndex.current.valueOf(); i < comments.current.length; i++) {
       if (comments.current[i].content_offset_seconds > time) {
         lastIndex = i;
@@ -494,7 +496,7 @@ export default function Chat(props) {
 
     const messages = [];
 
-    console.log(`current ${stoppedAtIndex.current.valueOf()} | last ${lastIndex}`)
+    console.log(`current ${stoppedAtIndex.current.valueOf()} | lastIndex ${lastIndex}`)
 
     for (let i = stoppedAtIndex.current.valueOf(); i < lastIndex; i++) {
       const comment = comments.current[i];
