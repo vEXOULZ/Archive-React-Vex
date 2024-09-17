@@ -203,6 +203,8 @@ export default function Chat(props) {
     if (youtube || games ? playerRef.current.getPlayerState() !== 1 : playerRef.current.paused()) return;
 
     const time = getCurrentTime();
+    console.log(`comments: ${comments}`)
+    console.log(`comments.current: ${comments.current}`)
     let lastIndex = comments.current.length - 1;
     for (let i = stoppedAtIndex.current.valueOf(); i < comments.current.length; i++) {
       if (comments.current[i].content_offset_seconds > time) {
