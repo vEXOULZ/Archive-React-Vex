@@ -108,17 +108,11 @@ export default function Vod(props) {
     if (vod.chapters){
       let vodSubtractor = 0;
       for (let chapterd of vod.chapters) {
-        if (chapterd.start < totalYoutubeDuration) {
-          if (chapterd.restricted) {
-            vodSubtractor += chapterd.end
-          }
-        } else break;
+        if (chapterd.restricted) {
+          vodSubtractor += chapterd.end
       }
-      console.log(`subtracting ${vodSubtractor} from ${totalYoutubeDuration}`)
-      totalYoutubeDuration -= vodSubtractor;
-      console.log(`total youtube duration: ${totalYoutubeDuration}`)
     }
-    const tmpDelay = vodDuration - totalYoutubeDuration < 0 ? 0 : vodDuration - totalYoutubeDuration;
+    const tmpDelay = vodDuration - totalYoutubeDuration - vodSubtractor < 0 ? 0 : vodDuration - totalYoutubeDuration - vodSubtractor;
     console.log(`delay: ${tmpDelay}`)
 
     setDelay(tmpDelay);
