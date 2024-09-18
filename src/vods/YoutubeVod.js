@@ -201,6 +201,7 @@ export default function Vod(props) {
         <Chat
           isPortrait={isPortrait}
           vodId={vodId}
+          vod={vod}
           playerRef={playerRef}
           playing={playing}
           delay={delay}
