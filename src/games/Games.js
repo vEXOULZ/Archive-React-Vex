@@ -101,7 +101,7 @@ export default function Games(props) {
                       {games.map((data, i) => {
                         return (
                           <MenuItem key={data.id} value={i}>
-                            {"byuedrishgbreuiygh"}
+                            {data.game_name}
                           </MenuItem>
                         );
                       })}
