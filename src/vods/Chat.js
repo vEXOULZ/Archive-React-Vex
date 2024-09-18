@@ -178,6 +178,7 @@ export default function Chat(props) {
     if (!playerRef.current) return 0;
     let time = 0;
     if (youtube) {
+      console.log(`youtuber`)
       for (let i = 0; i < youtube.length; i++) {
         let video = youtube[i];
         if (i + 1 >= part.part) break;
@@ -185,9 +186,13 @@ export default function Chat(props) {
       }
       time += playerRef.current.getCurrentTime();
     } else if (games) {
+      console.log(`gamer`)
+      console.log(`part = ${part}`)
+      console.log(`part = ${part.part}`)
       time += parseFloat(games[part.part - 1].start_time);
       time += playerRef.current.getCurrentTime();
     } else {
+      console.log(`nothinger`)
       time += playerRef.current.currentTime();
     }
     time += delay;
@@ -557,6 +562,7 @@ export default function Chat(props) {
     };
 
     const time = getCurrentTime();
+    console.log(`time: ${time}`);
 
     if (comments.current && comments.current.length > 0) {
       const lastComment = comments.current[comments.current.length - 1];
