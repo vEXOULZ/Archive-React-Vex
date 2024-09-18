@@ -23,6 +23,7 @@ export default function YoutubePlayer(props) {
     }
     currentTime += playerRef.current.getCurrentTime();
     currentTime += delay;
+    console.log(`current time player: ${currentTime}`)
     setCurrentTime(currentTime);
   };
 

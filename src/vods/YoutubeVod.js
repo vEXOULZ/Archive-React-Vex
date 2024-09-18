@@ -87,6 +87,7 @@ export default function Vod(props) {
 
   useEffect(() => {
     if (!playerRef.current || !vod || !vod.chapters) return;
+    console.log(`current time in yvod: ${currentTime}`)
     for (let chapter of vod.chapters) {
       if (currentTime > chapter.start && currentTime < chapter.start + chapter.end) {
         setChapter(chapter);
