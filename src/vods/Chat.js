@@ -206,6 +206,21 @@ export default function Chat(props) {
     console.log(`4 time = ${time}`)
     time += userChatDelay;
     console.log(`5 time = ${time}`)
+
+    if (vod.chapters){
+      for (let chapterd of vod.chapters) {
+        console.log(`chapterd.restricted: ${chapterd.restricted}`)
+        console.log(`chapterd.end: ${chapterd.end}`)
+        if (chapterd.start < time){
+          if (chapterd.restricted) {
+            time += chapterd.end
+          }
+        } else break;
+      }
+    }
+
+    console.log(`6 time = ${time}`)
+
     return time;
   }, [playerRef, youtube, delay, part, userChatDelay, games]);
 
