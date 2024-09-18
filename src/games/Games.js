@@ -59,6 +59,7 @@ export default function Games(props) {
 
   const handlePartChange = (evt) => {
     const tmpPart = evt.target.value + 1;
+    console.log(`part change to : ${tmpPart}`)
     setPart({ part: tmpPart, timestamp: 0 });
   };
 
