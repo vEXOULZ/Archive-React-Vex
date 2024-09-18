@@ -124,6 +124,7 @@ export default function Games(props) {
         <Chat
           isPortrait={isPortrait}
           vodId={vodId}
+          vod={vod}
           playerRef={playerRef}
           playing={playing}
           delay={delay}

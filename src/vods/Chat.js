@@ -22,7 +22,7 @@ let messageCount = 0;
 let badgesCount = 0;
 
 export default function Chat(props) {
-  const { isPortrait, vodId, playerRef, playing, ARCHIVE_API_BASE, twitchId, channel, userChatDelay, delay, youtube, part, games } = props;
+  const { isPortrait, vodId, vod, playerRef, playing, ARCHIVE_API_BASE, twitchId, channel, userChatDelay, delay, youtube, part, games } = props;
   const [showChat, setShowChat] = useState(true);
   const [shownMessages, setShownMessages] = useState([]);
   const comments = useRef([]);
@@ -177,6 +177,7 @@ export default function Chat(props) {
   const getCurrentTime = useCallback(() => {
     if (!playerRef.current) return 0;
     let time = 0;
+    console.log(`1 time = ${time}`)
     if (youtube) {
       console.log(`youtuber`)
       console.log(`part = ${part.part}`)
@@ -184,10 +185,12 @@ export default function Chat(props) {
       for (let i = 0; i < youtube.length; i++) {
         let video = youtube[i];
         if (i + 1 >= part.part) break;
-        console.log(`video.duration = ${video.duration}`)
         time += video.duration;
+        console.log(`video.duration = ${video.duration}`)
+        console.log(`2 time = ${time}`)
       }
       time += playerRef.current.getCurrentTime();
+      console.log(`3 time = ${time}`)
     } else if (games) {
       console.log(`gamer`)
       console.log(`part = ${part}`)
@@ -199,7 +202,9 @@ export default function Chat(props) {
       time += playerRef.current.currentTime();
     }
     time += delay;
+    console.log(`4 time = ${time}`)
     time += userChatDelay;
+    console.log(`5 time = ${time}`)
     return time;
   }, [playerRef, youtube, delay, part, userChatDelay, games]);
 
