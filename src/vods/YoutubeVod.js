@@ -109,7 +109,9 @@ export default function Vod(props) {
       let vodSubtractor = 0;
       for (let chapterd of vod.chapters) {
         if (chapterd.start < totalYoutubeDuration) {
-          vodSubtractor += chapterd.end
+          if (chapterd.restricted) {
+            vodSubtractor += chapterd.end
+          }
         } else break;
       }
       console.log(`subtracting ${vodSubtractor} from ${totalYoutubeDuration}`)
