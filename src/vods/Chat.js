@@ -179,9 +179,12 @@ export default function Chat(props) {
     let time = 0;
     if (youtube) {
       console.log(`youtuber`)
+      console.log(`part = ${part.part}`)
+      console.log(`youtube.length = ${youtube.length}`)
       for (let i = 0; i < youtube.length; i++) {
         let video = youtube[i];
         if (i + 1 >= part.part) break;
+        console.log(`video.duration = ${video.duration}`)
         time += video.duration;
       }
       time += playerRef.current.getCurrentTime();
