@@ -19,6 +19,17 @@ export default function Chapters(props) {
     if (youtube) {
       let part = 1,
         timestamp = data?.start || toSeconds(data.duration);
+
+      let decrementer = 0;
+      if (chapters) {
+        for (let chapter of chapters) {
+          if (chapter.start > timestamp) break;
+          if (chapter.restricted) decrementer += chapter.end
+        }
+      }
+
+      timestamp -= decrementer
+
       if (timestamp > 1) {
         for (let data of youtube) {
           if (data.duration > timestamp) {
