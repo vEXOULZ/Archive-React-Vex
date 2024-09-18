@@ -21,7 +21,7 @@ const Footer = styled((props) => (
     <CustomLink href="https://twitter.com/vexoulsad" rel="noopener noreferrer" target="_blank">
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Typography variant="caption" color="textSecondary">
-          edited by vEXOULZ with 🔪🩸
+          edited by vEXOULZ with 🧂
         </Typography>
       </Box>
     </CustomLink>
