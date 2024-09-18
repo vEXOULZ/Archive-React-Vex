@@ -202,6 +202,7 @@ export default function Chat(props) {
       time += playerRef.current.currentTime();
     }
     time += delay;
+    console.log(`delay = ${delay}`)
     console.log(`4 time = ${time}`)
     time += userChatDelay;
     console.log(`5 time = ${time}`)
