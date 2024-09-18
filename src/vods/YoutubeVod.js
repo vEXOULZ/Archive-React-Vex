@@ -119,7 +119,7 @@ export default function Vod(props) {
       console.log(`total youtube duration: ${totalYoutubeDuration}`)
     }
     const tmpDelay = vodDuration - totalYoutubeDuration < 0 ? 0 : vodDuration - totalYoutubeDuration;
-    console.log(`delay: ${totalYoutubeDuration}`)
+    console.log(`delay: ${tmpDelay}`)
 
     setDelay(tmpDelay);
   }, [youtube, vod]);
