@@ -81,6 +81,7 @@ export default function Vod(props) {
         timestamp -= data.duration;
       }
     }
+    console.log(`SET PART ${tmpPart} at ${timestamp}`)
     setPart({ part: tmpPart, timestamp: timestamp });
   }, [location.search, youtube]);
 

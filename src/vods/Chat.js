@@ -177,40 +177,24 @@ export default function Chat(props) {
   const getCurrentTime = useCallback(() => {
     if (!playerRef.current) return 0;
     let time = 0;
-    console.log(`1 time = ${time}`)
     if (youtube) {
-      console.log(`youtuber`)
-      console.log(`part = ${part.part}`)
-      console.log(`youtube.length = ${youtube.length}`)
       for (let i = 0; i < youtube.length; i++) {
         let video = youtube[i];
         if (i + 1 >= part.part) break;
         time += video.duration;
-        console.log(`video.duration = ${video.duration}`)
-        console.log(`2 time = ${time}`)
       }
       time += playerRef.current.getCurrentTime();
-      console.log(`3 time = ${time}`)
     } else if (games) {
-      console.log(`gamer`)
-      console.log(`part = ${part}`)
-      console.log(`part = ${part.part}`)
       time += parseFloat(games[part.part - 1].start_time);
       time += playerRef.current.getCurrentTime();
     } else {
-      console.log(`nothinger`)
       time += playerRef.current.currentTime();
     }
     time += delay;
-    console.log(`delay = ${delay}`)
-    console.log(`4 time = ${time}`)
     time += userChatDelay;
-    console.log(`5 time = ${time}`)
 
     if (vod.chapters){
       for (let chapterd of vod.chapters) {
-        console.log(`chapterd.restricted: ${chapterd.restricted}`)
-        console.log(`chapterd.end: ${chapterd.end}`)
         if (chapterd.start < time){
           if (chapterd.restricted) {
             time += chapterd.end
@@ -218,8 +202,6 @@ export default function Chat(props) {
         } else break;
       }
     }
-
-    console.log(`6 time = ${time}`)
 
     return time;
   }, [playerRef, youtube, delay, part, userChatDelay, games]);
