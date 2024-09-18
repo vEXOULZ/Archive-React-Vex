@@ -18,6 +18,13 @@ const Footer = styled((props) => (
         </Typography>
       </Box>
     </CustomLink>
+    <CustomLink href="https://twitter.com/vexoulsad" rel="noopener noreferrer" target="_blank">
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Typography variant="caption" color="textSecondary">
+          edited by vEXOULZ with 💢
+        </Typography>
+      </Box>
+    </CustomLink>
     <CustomLink href={`${process.env.REACT_APP_GITHUB}/commit/${gitInfo.commit.shortHash}`} rel="noopener noreferrer" target="_blank">
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 1 }}>
         <Typography variant="caption" color="textSecondary">
