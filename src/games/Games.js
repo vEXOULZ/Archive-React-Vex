@@ -68,6 +68,7 @@ export default function Games(props) {
   };
 
   useEffect(() => {
+    console.log(`aaaaaa delay = ${delay}`)
     console.info(`Chat Delay: ${userChatDelay + delay} seconds`);
   }, [userChatDelay]);
 
@@ -75,7 +76,6 @@ export default function Games(props) {
 
   if (games.length === 0) return <NotFound />;
 
-  console.log(`aaaaaa delay = ${delay}`)
   return (
     <Box sx={{ height: "100%", width: "100%" }}>
       <Box sx={{ display: "flex", flexDirection: isPortrait ? "column" : "row", height: "100%", width: "100%" }}>
