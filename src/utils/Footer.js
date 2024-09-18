@@ -17,7 +17,7 @@ const Footer = styled((props) => (
           made by OP with 💜
         </Typography>
       </CustomLink>
-      |
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <CustomLink href="https://twitter.com/vexoulsad" rel="noopener noreferrer" target="_blank">
         <Typography variant="caption" color="textSecondary">
           edited by vEXOULZ with 💢
