@@ -115,7 +115,7 @@ export default function Vod(props) {
         }
       }
     }
-    console.log(`subtractor: ${subtractor}`)
+    console.log(`subtractor: ${vodSubtractor}`)
     const tmpDelay = vodDuration - totalYoutubeDuration - vodSubtractor < 0 ? 0 : vodDuration - totalYoutubeDuration - vodSubtractor;
     console.log(`delay: ${tmpDelay}`)
 
