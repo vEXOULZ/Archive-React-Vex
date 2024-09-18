@@ -93,7 +93,7 @@ export default function Vod(props) {
       if (chapter.restricted) {
         restrictedCorrection += chapter.start
       }
-      if (currentTime > chapter.start - restrictedCorrection && currentTime < chapter.start + chapter.end - restrictedCorrection) {
+      else if (currentTime > chapter.start - restrictedCorrection && currentTime < chapter.start + chapter.end - restrictedCorrection) {
         setChapter(chapter);
         break;
       }

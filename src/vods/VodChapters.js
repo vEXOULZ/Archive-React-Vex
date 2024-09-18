@@ -57,7 +57,7 @@ export default function Chapters(props) {
       <Menu anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose} sx={{ maxWidth: "280px", maxHeight: "400px" }}>
         {chapters.map((data, _) => {
           return (
-            <MenuItem onClick={() => handleChapterClick(data)} key={(data?.gameId || data.name) + (data?.start || data.duration)} selected={data.start === chapter.start}>
+            <MenuItem onClick={() => handleChapterClick(data)} key={(data?.gameId || data.name) + (data?.start || data.duration)} selected={data.start === chapter.start} disabled={data.restricted}>
               <Box sx={{ display: "flex" }}>
                 <Box sx={{ mr: 1 }}>
                   <img alt="" src={getImage(data.image)} style={{ width: "40px", height: "53px" }} />
