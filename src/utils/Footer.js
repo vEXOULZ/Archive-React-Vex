@@ -11,20 +11,20 @@ const Footer = styled((props) => (
         {`${process.env.REACT_APP_CHANNEL} © ${new Date().getFullYear()}`}
       </Typography>
     </Box>
-    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <CustomLink href="https://twitter.com/overpowered" rel="noopener noreferrer" target="_blank">
+    <CustomLink href="https://twitter.com/overpowered" rel="noopener noreferrer" target="_blank">
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Typography variant="caption" color="textSecondary">
           made by OP with 💜
         </Typography>
-      </CustomLink>
-    </Box>
-    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <CustomLink href="https://twitter.com/vexoulsad" rel="noopener noreferrer" target="_blank">
+      </Box>
+    </CustomLink>
+    <CustomLink href="https://twitter.com/vexoulsad" rel="noopener noreferrer" target="_blank">
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <Typography variant="caption" color="textSecondary">
           edited by vEXOULZ with 🔪🩸
         </Typography>
-      </CustomLink>
-    </Box>
+      </Box>
+    </CustomLink>
     <CustomLink href={`${process.env.REACT_APP_GITHUB}/commit/${gitInfo.commit.shortHash}`} rel="noopener noreferrer" target="_blank">
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 1 }}>
         <Typography variant="caption" color="textSecondary">
