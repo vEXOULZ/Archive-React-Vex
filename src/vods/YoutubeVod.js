@@ -12,6 +12,7 @@ import ExpandMore from "../utils/CustomExpandMore";
 import CustomToolTip from "../utils/CustomToolTip";
 import { parse } from "tinyduration";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import { toHMS, toSeconds } from "../utils/helpers";
 
 export default function Vod(props) {
@@ -146,6 +147,10 @@ export default function Vod(props) {
     navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?t=${toHMS(currentTime)}`);
   };
 
+  const setFullscreen = () => {
+    document.querySelector("body").requestFullscreen();
+  };
+
   if (vod === undefined || drive === undefined || chapter === undefined || part === undefined || delay === undefined) return <Loading />;
 
   if (youtube.length === 0) return <NotFound channel={channel} />;
@@ -196,6 +201,13 @@ export default function Vod(props) {
                   <Tooltip title={`Copy Current Timestamp`}>
                     <IconButton onClick={copyTimestamp} color="primary" aria-label="Copy Current Timestamp" rel="noopener noreferrer" target="_blank">
                       <ContentCopyIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+                <Box sx={{ ml: 0.5 }}>
+                  <Tooltip title={`Fullscreen`}>
+                    <IconButton onClick={setFullscreen} color="primary" aria-label="Fullscreen Website" rel="noopener noreferrer" target="_blank">
+                      <FullscreenIcon />
                     </IconButton>
                   </Tooltip>
                 </Box>
