@@ -13,6 +13,7 @@ import CustomToolTip from "../utils/CustomToolTip";
 import { parse } from "tinyduration";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
 import { toHMS, toSeconds } from "../utils/helpers";
 
 export default function Vod(props) {
@@ -26,6 +27,7 @@ export default function Vod(props) {
   const [chapter, setChapter] = useState(undefined);
   const [part, setPart] = useState(undefined);
   const [showMenu, setShowMenu] = useState(true);
+  const [fullscreen, setFullscreen] = useState(false);
   const [currentTime, setCurrentTime] = useState(undefined);
   const [playing, setPlaying] = useState({ playing: false });
   const [delay, setDelay] = useState(undefined);
@@ -147,8 +149,16 @@ export default function Vod(props) {
     navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?t=${toHMS(currentTime)}`);
   };
 
-  const setFullscreen = () => {
-    document.querySelector("body").requestFullscreen();
+  const setBodyFullscreen = () => {
+    const bodyElement = document.querySelector("body")
+    if (fullscreen) {
+      bodyElement.exitFullscreen();
+      setFullscreen(false);
+    }
+    else {
+      bodyElement.requestFullscreen();
+      setFullscreen(true);
+    }
   };
 
   if (vod === undefined || drive === undefined || chapter === undefined || part === undefined || delay === undefined) return <Loading />;
@@ -205,11 +215,18 @@ export default function Vod(props) {
                   </Tooltip>
                 </Box>
                 <Box sx={{ ml: 0.5 }}>
-                  <Tooltip title={`Fullscreen`}>
-                    <IconButton onClick={setFullscreen} color="primary" aria-label="Fullscreen Website" rel="noopener noreferrer" target="_blank">
+                  {!fullscreen && (<Tooltip title={`Fullscreen`}>
+                    <IconButton onClick={setBodyFullscreen} color="primary" aria-label="Fullscreen Website" rel="noopener noreferrer" target="_blank">
                       <FullscreenIcon />
                     </IconButton>
-                  </Tooltip>
+                  </Tooltip> )}
+                </Box>
+                <Box sx={{ ml: 0.5 }}>
+                  {fullscreen && (<Tooltip title={`Leave Fullscreen`}>
+                    <IconButton onClick={setBodyFullscreen} color="primary" aria-label="Fullscreen Website" rel="noopener noreferrer" target="_blank">
+                      <FullscreenExitIcon />
+                    </IconButton>
+                  </Tooltip> )}
                 </Box>
               </Box>
             </Box>
