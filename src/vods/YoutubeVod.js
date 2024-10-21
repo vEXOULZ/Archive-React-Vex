@@ -150,13 +150,12 @@ export default function Vod(props) {
   };
 
   const setBodyFullscreen = () => {
-    const bodyElement = document.querySelector("body")
     if (fullscreen) {
-      bodyElement.exitFullscreen();
+      document.exitFullscreen();
       setFullscreen(false);
     }
     else {
-      bodyElement.requestFullscreen();
+      document.querySelector("body").requestFullscreen();
       setFullscreen(true);
     }
   };
