@@ -4,6 +4,7 @@ import Logo from "../assets/logo.webp";
 import CustomLink from "../utils/CustomLink";
 import Drawer from "./drawer";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ReportIcon from "@mui/icons-material/Report";
 
 const socials = [];
@@ -51,11 +52,26 @@ export default function Navbar(props) {
           {!isMobile && (
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1 }}>
               <Box sx={{ mr: 2 }}>
-                <CustomLink href="/vods">
+                <CustomLink href="http://vods.vexoulz.net/">
                   <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <OndemandVideoIcon color="primary" sx={{ mr: 0.5 }} />
                     <Typography color="primary" variant="h6">
                       Vods
+                    </Typography>
+                  </Box>
+                </CustomLink>
+              </Box>
+            </Box>
+          )}
+
+          {!isMobile && (
+            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1 }}>
+              <Box sx={{ mr: 2 }}>
+                <CustomLink href="http://shop.vexoulz.net/">
+                  <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                    <AddShoppingCartIcon color="primary" sx={{ mr: 0.5 }} />
+                    <Typography color="primary" variant="h6">
+                      Shop
                     </Typography>
                   </Box>
                 </CustomLink>
