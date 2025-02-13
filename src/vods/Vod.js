@@ -47,11 +47,11 @@ export default function Vod(props) {
       <Box sx={{ mt: 1, mb: 1, display: "flex" }}>
         {vod.chapters && vod.chapters.length > 0 && <Chapters vod={vod} />}
         <Box sx={{ minWidth: 0, width: "100%" }}>
-          <Box sx={{ p: 0.5 }}>
+          <Box sx={{ p: 0.5 , "line-height": "0.8"}}>
             <CustomWidthTooltip title={vod.title} placement="top">
               <span>
-                <CustomLink href={DEFAULT_VOD} sx={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", display: "block" }}>
-                  <Typography variant="caption" color="primary" sx={{ fontWeight: "550" }}>
+                <CustomLink href={DEFAULT_VOD}>
+                  <Typography variant="caption" color="primary" sx={{ fontWeight: "550"}}>
                     {vod.title}
                   </Typography>
                 </CustomLink>
