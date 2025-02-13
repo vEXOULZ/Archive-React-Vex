@@ -4,7 +4,7 @@ import Logo from "../assets/logo.webp";
 import CustomLink from "../utils/CustomLink";
 import Drawer from "./drawer";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import PublicIcon from '@mui/icons-material/Public';
 import ReportIcon from "@mui/icons-material/Report";
 
 const socials = [];
@@ -67,11 +67,11 @@ export default function Navbar(props) {
           {!isMobile && (
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", flex: 1 }}>
               <Box sx={{ mr: 2 }}>
-                <CustomLink href="http://shop.vexoulz.net/">
+                <CustomLink href="http://vexoulz.net/">
                   <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <ShoppingBagIcon color="primary" sx={{ mr: 0.5 }} />
+                    <PublicIcon color="primary" sx={{ mr: 0.5 }} />
                     <Typography color="primary" variant="h6">
-                      Shop
+                      More About Bex
                     </Typography>
                   </Box>
                 </CustomLink>
