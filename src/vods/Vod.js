@@ -50,8 +50,8 @@ export default function Vod(props) {
           <Box sx={{ p: 0.5 , "line-height": "0.8"}}>
             <CustomWidthTooltip title={vod.title} placement="top">
               <span>
-                <CustomLink href={DEFAULT_VOD}>
-                  <Typography variant="caption" color="primary" sx={{ fontWeight: "550"}}>
+                <CustomLink href={DEFAULT_VOD} sx={{ overflow: "hidden", textOverflow: "ellipsis", display: "block" }}>
+                  <Typography variant="caption" color="primary" sx={{ fontWeight: "550" }}>
                     {vod.title}
                   </Typography>
                 </CustomLink>
